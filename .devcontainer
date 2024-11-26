@@ -1,0 +1,9 @@
+{
+  "name": "My Project",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "extensions": ["ms-vscode.vscode-typescript-tslint-plugin"],
+  "postCreateCommand": "npm install"
+}
