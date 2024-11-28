@@ -1,20 +1,14 @@
-"""Simon Says
+#Olivia Darlington - OD
 
-Exercises
+from random import choice #import choice function, which allows you to pick a random tile from the list of tiles OD
+from time import sleep #import sleep function, which allows the time for the tiles to glow and for there too be time between flashes OD 
+from turtle import * #import turtle module which allows the grid shapes to be drawn
 
-1. Speed up tile flash rate.
-2. Add more tiles.
-"""
+from freegames import floor, square, vector #import floor, which allows the user's guess to be placed in a tile, square, which draws the tiles, and vector, which allows vectors to be used to mark tile and guess locaitons on the plane OD
 
-from random import choice
-from time import sleep
-from turtle import *
-
-from freegames import floor, square, vector
-
-pattern = []
-guesses = []
-tiles = {
+pattern = [] #creates list of tiles in the pattern in order OD
+guesses = [] #creates list of the users guesses in order OD
+tiles = { #creating a set of the four tiles to use for flashing, guesses, and pattern OD
     vector(0, 0): ('red', 'dark red'),
     vector(0, -200): ('blue', 'dark blue'),
     vector(-200, 0): ('green', 'dark green'),
