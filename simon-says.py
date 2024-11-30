@@ -1,5 +1,6 @@
 #Olivia Darlington - OD
 #Evan Hoste - EH
+#Karan Bajwa - KB
 
 from random import choice #import choice function, which allows you to pick a random tile from the list of tiles OD
 from time import sleep #import sleep function, which allows the time for the tiles to glow and for there too be time between flashes OD 
@@ -37,14 +38,21 @@ def flash(tile):
     sleep(0.5)
 
 
-def grow():
-    """Grow pattern and flash tiles."""
+def grow(): # Grows pattern and displays it to the player KB 
+   # Randomly select a tile from the available options (red, blue, green, yellow). KB
+   # This new tile makes the pattern longer and more challenging. KB
     tile = choice(list(tiles))
-    pattern.append(tile)
+    pattern.append(tile) # Add the selected tile to the pattern list. KB
 
+    # Flash all the tiles in the updated pattern sequentially. KB
+    # This visually shows the full pattern to the player. KB
     for tile in pattern:
-        flash(tile)
+        flash(tile) # Briefly light up the tile on the screen. KB
 
+    # Print the pattern length to the console for debugging or feedback. KB
+   
+    # Clear the guesses list to prepare for the next round of user input. KB
+    # This ensures the player starts fresh without leftover data from previous rounds. KB
     print('Pattern length:', len(pattern))
     guesses.clear()
 
@@ -70,8 +78,14 @@ def tap(x, y): #Function that deals with when the user clicks the screen to gues
 
 
 def start(x, y):
-    """Start game."""
+    """Initialize the game when the player clicks to begin."""
+    
+    # Begin the game by calling grow() to generate the first tile in the pattern. KB
+    # This establishes the initial sequence that the player must memorize. KB
     grow()
+    
+    # Enable the tap handler to allow the player to start entering guesses. KB
+    # The tap function will handle tile clicks and verify the player's input. KB
     onscreenclick(tap)
 
 
