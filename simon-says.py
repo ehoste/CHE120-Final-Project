@@ -1,4 +1,5 @@
 #Olivia Darlington - OD
+#Evan Hoste - EH
 
 from random import choice #import choice function, which allows you to pick a random tile from the list of tiles OD
 from time import sleep #import sleep function, which allows the time for the tiles to glow and for there too be time between flashes OD 
@@ -48,24 +49,24 @@ def grow():
     guesses.clear()
 
 
-def tap(x, y):
+def tap(x, y): #Function that deals with when the user clicks the screen to guess sequence - EH
     """Respond to screen tap."""
     onscreenclick(None)
     x = floor(x, 200)
     y = floor(y, 200)
-    tile = vector(x, y)
-    index = len(guesses)
+    tile = vector(x, y) #Determines which tile the user clicked - EH 
+    index = len(guesses) #Gets the index of the user's guess - EH
 
-    if tile != pattern[index]:
+    if tile != pattern[index]: #Exits game if user clicks on wrong tile - EH
         exit()
 
-    guesses.append(tile)
+    guesses.append(tile) #Adds user's input to the guesses list and flashes square if guess is correct - EH
     flash(tile)
 
-    if len(guesses) == len(pattern):
+    if len(guesses) == len(pattern): #Starts sequence with a new addition once user has guessed entire sequence - EH
         grow()
 
-    onscreenclick(tap)
+    onscreenclick(tap) #Restarts function if there are still tiles in the sequence that the user has to guess - EH
 
 
 def start(x, y):
@@ -74,9 +75,9 @@ def start(x, y):
     onscreenclick(tap)
 
 
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
-grid()
-onscreenclick(start)
-done()
+setup(420, 420, 370, 0) #Creates game window - EH
+hideturtle() #Hides arrow from screen - EH
+tracer(False) #Prevents tracing of tiles from being displayed - EH
+grid() #Creates tiles on screen - EH
+onscreenclick(start) #Starts game when user clicks screen - EH
+done() #Closes window once game has ended - EH
