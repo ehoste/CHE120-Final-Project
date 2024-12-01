@@ -1,6 +1,7 @@
 #Olivia Darlington - OD
 #Evan Hoste - EH
 #Karan Bajwa - KB
+#Tom Si - TS
 
 from random import choice #import choice function, which allows you to pick a random tile from the list of tiles OD
 from time import sleep #import sleep function, which allows the time for the tiles to glow and for there too be time between flashes OD 
@@ -18,7 +19,7 @@ tiles = { #creating a set of the four tiles to use for flashing, guesses, and pa
 }
 
 
-def grid():
+def grid(): #creates a grid of tiles for gameplay for the drawn tiles - TS
     """Draw grid of tiles."""
     square(0, 0, 200, 'dark red')
     square(0, -200, 200, 'dark blue')
@@ -27,15 +28,15 @@ def grid():
     update()
 
 
-def flash(tile):
+def flash(tile): #flashes tile when user clicks on tile or when the pattern is being shown - TS
     """Flash tile in grid."""
-    glow, dark = tiles[tile]
+    glow, dark = tiles[tile] #refers to the colours established in tiles list such that the first colour (e.g. red) is glow, and the second is dark (e.g. dark red) - TS
     square(tile.x, tile.y, 200, glow)
     update()
-    sleep(0.5)
+    sleep(0.5) #prolongs flash so user can see it - TS
     square(tile.x, tile.y, 200, dark)
     update()
-    sleep(0.5)
+    sleep(0.5) #creates buffer between each flash of the tile - TS
 
 
 def grow(): # Grows pattern and displays it to the player KB 
